@@ -1,0 +1,50 @@
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<html>
+<head>
+<title>Passive Card - TalSim_0.1</title>
+</head>
+<body>
+<script src="js/card1.js"></script>
+
+<div class="sidebar">
+	<p style="font-size:0.7em">TalSim v0.1</p>
+	<p><a href="symbol.html"><img src="img/symb1.png"></img>Magic Symbol</a></p>
+	<p><a href="card.html"><img src="img/skill2.png"></img>Passive Card</a></p>
+</div>
+<div class="main">
+	Class 1
+	<div class="card_block">
+		<div class="card_main">
+			<div class="card_name">Card Name 1</div>
+			<div class="card_info">
+				<div id="0">
+					<img src="img/card_frame_01.png">
+				</div>
+			</div>
+			<button class="card_b1" onclick="Open(0)">Upgrade</button>
+			<button class="card_b2" onclick="Reroll(0)">R</button>
+		</div>
+		<div class="card_main">
+			<div class="card_name">Card Name 2</div>
+			<div class="card_info">
+				<div id="1">
+					<img src="img/card_frame_01.png">
+				</div>
+			</div>
+			<button class="card_b1" onclick="Open(1)">Upgrade</button>
+			<button class="card_b2" onclick="Reroll(1)">R</button>
+		</div>
+	</div>
+	
+	<div id="card_fullwrap" style="display: none">
+		<div class="card_upg">
+			<input type="number" name="level" id="level">
+			<button class="card_b2" onclick="Max()">Max</button><br>
+			<button class="card_b2" onclick="Upgrade()">Upgrade</button>
+			<div id="card_error"></div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
