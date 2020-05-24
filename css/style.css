@@ -41,6 +41,7 @@ body{
 	border: 1px solid black;
 	display: inline-block;
 	width: 200px;
+	margin-bottom: 5px;
 }
 .card_main img{
 	max-width: 120px;
@@ -58,14 +59,17 @@ body{
 	font-size: 1em;
 }
 .card_info table{
-	font-weight: none;
 	width: 100%;
 	font-size: 1em;
 }
 .card_info th, .card_info td{
+	font-weight: normal;
+	/*width: 40%;*/
 	text-align: left;
 }
 .card_info th+th, .card_info td+td{
+	font-weight: normal;
+	/*width: 60%;*/
 	text-align: right;
 }
 .card_info p{
