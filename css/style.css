@@ -11,28 +11,46 @@ body{
 	left: 0;
 	background-color: #111;
 	overflow-x: hidden;
-	padding-top: 20px;
 	margin: 0px;
 	padding: 0px;
 	font-size: 0.9em;
 	text-align: center;
-}
-.sidebar p{
-	margin-top: 0px;
 }
 .sidebar a{
 	color: white;
 	text-decoration: none;
 }
 .sidebar img{
-	display: block;
+	/*display: block;*/
 	margin-left: auto;
 	margin-right: auto;
+}
+.sidebar_element{
+	display: block;
+	max-width: 80px;
+	margin-top: 10px;
 }
 .main{
 	margin-left: 80px;
 	padding: 0px 5px;
 }
+@media (orientation: portrait){
+	.sidebar{
+		height: 82px;
+		width: 100%;
+	}
+	.sidebar_element{
+		display: inline-block;
+		max-width: 90px;
+		margin: 0px;
+	}
+	.main{
+		margin-left: 0px;
+		margin-top: 82px;
+		padding: 5px 5px 0px 5px;
+	}
+}
+
 /*CARD*/
 .card_block{
 	display: block;
@@ -75,11 +93,23 @@ body{
 .card_info p{
 	padding: 10px 0px;
 }
-.card_b1, .card_b2{
+.card_img{
+	position: relative;
+}
+#cimg2{
+	position: absolute;
+    left: 65px;
+    top: 25px;
+	width: 70px;
+}
+.card_b, .card_b1, .card_b2{
 	background: #777;
 	color: white;
 	margin: 0px;
 	min-height: 2em;
+}
+.card_b{
+	width: 100%;
 }
 .card_b1{
 	width: 80%;

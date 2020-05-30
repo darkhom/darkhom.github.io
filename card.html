@@ -3,24 +3,94 @@
 <head>
 <title>Passive Card - TalSim_0.1</title>
 </head>
-<body>
+<script src="js/sidebar.js"></script>
+<body onload="Sidebar(2)">
 <script src="js/card1.js"></script>
 
-<div class="sidebar">
-	<p style="font-size:0.7em">TalSim v0.1</p>
-	<p><a href="symbol.html"><img src="img/symb1.png"></img>Magic Symbol</a></p>
-	<p><a href="card.html"><img src="img/skill2.png"></img>Passive Card</a></p>
-</div>
+<div id="sload"></div>
 <div class="main">
 	<div id="card_gold">
 		You have spent: nothing yet
 	</div>
 	<div class="card_block">
+		Kyle<br>
+		<div class="card_main">
+			<div class="card_name">Source of Strength</div>
+			<div class="card_info">
+				<div id="6">
+					<img src="img/card_frame_back.png">
+				</div>
+			</div>
+			<div id="6_new"><button class="card_b" onclick="NewCard(6)">Open</button></div>
+			<div id="6_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(6)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(6)">R</button>
+			</div>
+		</div>
+		<div class="card_main">
+			<div class="card_name">Cover Weakness</div>
+			<div class="card_info">
+				<div id="7">
+					<img src="img/card_frame_back.png">
+				</div>
+			</div>
+			<div id="7_new"><button class="card_b" onclick="NewCard(7)">Open</button></div>
+			<div id="7_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(7)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(7)">R</button>
+			</div>
+		</div>
+		<div class="card_main">
+			<div class="card_name">Perseverance</div>
+			<div class="card_info">
+				<div id="8">
+					<img src="img/card_frame_back.png">
+				</div>
+			</div>
+			<div id="8_new"><button class="card_b" onclick="NewCard(8)">Open</button></div>
+			<div id="8_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(8)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(8)">R</button>
+			</div>
+		</div>
+		<div class="card_main">
+			<div class="card_name">Infinite Mind Power</div>
+			<div class="card_info">
+				<div id="9">
+					<img src="img/card_frame_back.png">
+				</div>
+			</div>
+			<div id="9_new"><button class="card_b" onclick="NewCard(9)">Open</button></div>
+			<div id="9_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(9)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(9)">R</button>
+			</div>
+		</div>
+		<div class="card_main">
+			<div class="card_name">Warmonger</div>
+			<div class="card_info">
+				<div id="10">
+					<img src="img/card_frame_back.png">
+				</div>
+			</div>
+			<div id="10_new"><button class="card_b" onclick="NewCard(10)">Open</button></div>
+			<div id="10_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(10)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(10)">R</button>
+			</div>
+		</div>
+	</div><br>
+	
+	<div class="card_block">
+		Velletrin<br>
 		<div class="card_main" style="display:none">
 			<div class="card_name">Card Name 1</div>
 			<div class="card_info">
 				<div id="0">
-					<img src="img/card_frame_01.png">
+					<div class="card_img">
+						<img src="img/card_frame_05.png">
+						<img src="img/card/Passive_Card_CriticalAttack01.png" id="cimg2">
+					</div>
 				</div>
 			</div>
 			<button class="card_b1" onclick="Open(0)">Upgrade</button>
@@ -30,53 +100,68 @@
 			<div class="card_name">Source of Strength</div>
 			<div class="card_info">
 				<div id="1">
-					<img src="img/card_frame_01.png">
+					<img src="img/card_frame_back.png">
 				</div>
 			</div>
-			<button class="card_b1" onclick="Open(1)">Upgrade</button>
-			<button class="card_b2" onclick="Reroll(1)">R</button>
+			<div id="1_new"><button class="card_b" onclick="NewCard(1)">Open</button></div>
+			<div id="1_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(1)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(1)">R</button>
+			</div>
 		</div>
 		<div class="card_main">
 			<div class="card_name">Pinpoint Strike</div>
 			<div class="card_info">
 				<div id="2">
-					<img src="img/card_frame_01.png">
+					<img src="img/card_frame_back.png">
 				</div>
 			</div>
-			<button class="card_b1" onclick="Open(2)">Upgrade</button>
-			<button class="card_b2" onclick="Reroll(2)">R</button>
+			<div id="2_new"><button class="card_b" onclick="NewCard(2)">Open</button></div>
+			<div id="2_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(2)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(2)">R</button>
+			</div>
 		</div>
 		<div class="card_main">
 			<div class="card_name">Agility</div>
 			<div class="card_info">
 				<div id="3">
-					<img src="img/card_frame_01.png">
+					<img src="img/card_frame_back.png">
 				</div>
 			</div>
-			<button class="card_b1" onclick="Open(3)">Upgrade</button>
-			<button class="card_b2" onclick="Reroll(3)">R</button>
+			<div id="3_new"><button class="card_b" onclick="NewCard(3)">Open</button></div>
+			<div id="3_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(3)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(3)">R</button>
+			</div>
 		</div>
 		<div class="card_main">
 			<div class="card_name">Infinite Mind Power</div>
 			<div class="card_info">
 				<div id="4">
-					<img src="img/card_frame_01.png">
+					<img src="img/card_frame_back.png">
 				</div>
 			</div>
-			<button class="card_b1" onclick="Open(4)">Upgrade</button>
-			<button class="card_b2" onclick="Reroll(4)">R</button>
+			<div id="4_new"><button class="card_b" onclick="NewCard(4)">Open</button></div>
+			<div id="4_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(4)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(4)">R</button>
+			</div>
 		</div>
 		<div class="card_main">
 			<div class="card_name">Warmonger</div>
 			<div class="card_info">
 				<div id="5">
-					<img src="img/card_frame_01.png">
+					<img src="img/card_frame_back.png">
 				</div>
 			</div>
-			<button class="card_b1" onclick="Open(5)">Upgrade</button>
-			<button class="card_b2" onclick="Reroll(5)">R</button>
+			<div id="5_new"><button class="card_b" onclick="NewCard(5)">Open</button></div>
+			<div id="5_notnew" style="display:none">
+				<button class="card_b1" onclick="Open(5)">Upgrade</button>
+				<button class="card_b2" onclick="Reroll(5)">R</button>
+			</div>
 		</div>
-	</div>
+	</div><br>
 	
 	<div id="card_fullwrap" style="display:none">
 		<div class="card_upg">
