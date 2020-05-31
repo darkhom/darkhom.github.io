@@ -2,22 +2,37 @@ var lvl=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var att1=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var att2=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var card=0;
-var pcard=0, sbook=0;
+var pcard=0, sbook=0, gold=0, diam=0, rubi=0;
 
-function Open(c){
-	if (lvl[c]==8) return;
-	document.getElementById("card_fullwrap").style.display="block";
+function OpenUpg(c){
+	if (lvl[c]==8) return; card=c;
+	document.getElementById("card_fullwrap1").style.display="block";
+	
+	document.getElementById("card_checklevel").innerHTML="Current Level: "+lvl[c]+"/8";
+}
+function OpenReset(c){
+	document.getElementById("card_fullwrap2").style.display="block";
 	card=c;
 }
+function Close(){
+	document.getElementById("card_fullwrap1").style.display="none";
+	document.getElementById("card_fullwrap2").style.display="none";
+	card=0;
+}
 function NewCard(c){
-	card=c; pcard--;
+	card=c; gold+=500000; sbook+=10;
 	document.getElementById(card+"_new").style.display="none";
 	document.getElementById(card+"_notnew").style.display="block";
-	Reroll(card);
+	Reroll(-1);
 }
-function Reroll(c){
-	var proc=0; card=c; pcard++;
+function Reroll(g){
+	var proc=0;
 	att1[card]=att2[card]=0; lvl[card]=1;
+	if (g==0) diam+=20;
+	else if (g==1) rubi+=200;
+	else if (g==2) gold+=100000;
+	else if (g==3) pcard++;
+	
 	if (card==0) {
 		att1[card]+=Math.floor(Math.random()*200)+1;
 		att2[card]+=Math.floor(Math.random()*30)+1;
@@ -62,7 +77,48 @@ function Reroll(c){
 		att1[card]+=Math.floor(Math.random()*670)+75;
 		att2[card]+=Math.floor(Math.random()*15)+2;
 		proc=Number(100*(att1[card]/744+att2[card]/16)/2);
+	}/*Pell*/ else if (card==11) {
+		att1[card]+=Math.floor(Math.random()*474)+53;
+		att2[card]+=Math.floor(Math.random()*46)+6;
+		proc=Number(100*(att1[card]/526+att2[card]/51)/2);
+	} else if (card==12) {
+		att1[card]+=Math.floor(Math.random()*345)+39;
+		att2[card]+=Math.floor(Math.random()*57)+7;
+		proc=Number(100*(att1[card]/383+att2[card]/63)/2);
+	} else if (card==13) {
+		att1[card]+=Math.floor(Math.random()*464)+52;
+		att2[card]+=Math.floor(Math.random()*55)+7;
+		proc=Number(100*(att1[card]/515+att2[card]/61)/2);
+	} else if (card==14) {
+		att1[card]+=Math.floor(Math.random()*1722)+192;
+		att2[card]+=Math.floor(Math.random()*55)+7;
+		proc=Number(100*(att1[card]/1913+att2[card]/61)/2);
+	} else if (card==15) {
+		att1[card]+=Math.floor(Math.random()*670)+75;
+		att2[card]+=Math.floor(Math.random()*52)+6;
+		proc=Number(100*(att1[card]/744+att2[card]/57)/2);
+	}/*Aizen*/ else if (card==16) {
+		att1[card]+=Math.floor(Math.random()*442)+50;
+		att2[card]+=Math.floor(Math.random()*45)+6;
+		proc=Number(100*(att1[card]/491+att2[card]/50)/2);
+	} else if (card==17) {
+		att1[card]+=Math.floor(Math.random()*229)+26;
+		att2[card]+=Math.floor(Math.random()*50)+6;
+		proc=Number(100*(att1[card]/254+att2[card]/55)/2);
+	} else if (card==18) {
+		att1[card]+=Math.floor(Math.random()*497)+56;
+		att2[card]+=Math.floor(Math.random()*52)+6;
+		proc=Number(100*(att1[card]/552+att2[card]/57)/2);
+	} else if (card==19) {
+		att1[card]+=Math.floor(Math.random()*2009)+224;
+		att2[card]+=Math.floor(Math.random()*51)+6;
+		proc=Number(100*(att1[card]/2232+att2[card]/56)/2);
+	} else if (card==20) {
+		att1[card]+=Math.floor(Math.random()*670)+75;
+		att2[card]+=Math.floor(Math.random()*49)+6;
+		proc=Number(100*(att1[card]/744+att2[card]/54)/2);
 	}
+	document.getElementById("card_fullwrap2").style.display="none";
 	Output(proc);
 }
 function Upgrade(){
@@ -125,16 +181,56 @@ function Upgrade(){
 			att1[card]+=Math.floor(Math.random()*670)+75;//75-744
 			att2[card]+=Math.floor(Math.random()*15)+2;//2-16
 			proc=Number(100*(att1[card]/(744*(i+1))+att2[card]/(16*(i+1)))/2);
-		}/*Pell*/
+		}/*Pell*/ else if (card==11) {
+			att1[card]+=Math.floor(Math.random()*474)+53;//53-526
+			att2[card]+=Math.floor(Math.random()*46)+6;//6-51
+			proc=Number(100*(att1[card]/(526*(i+1))+att2[card]/(51*(i+1)))/2);
+		} else if (card==12) {
+			att1[card]+=Math.floor(Math.random()*345)+39;//39-383
+			att2[card]+=Math.floor(Math.random()*57)+7;//7-63
+			proc=Number(100*(att1[card]/(383*(i+1))+att2[card]/(63*(i+1)))/2);
+		} else if (card==13) {
+			att1[card]+=Math.floor(Math.random()*464)+52;//52-515
+			att2[card]+=Math.floor(Math.random()*55)+7;//7-61
+			proc=Number(100*(att1[card]/(515*(i+1))+att2[card]/(61*(i+1)))/2);
+		} else if (card==14) {
+			att1[card]+=Math.floor(Math.random()*1722)+192;//192-1913
+			att2[card]+=Math.floor(Math.random()*55)+7;//7-61
+			proc=Number(100*(att1[card]/(1913*(i+1))+att2[card]/(61*(i+1)))/2);
+		} else if (card==15) {
+			att1[card]+=Math.floor(Math.random()*670)+75;//75-744
+			att2[card]+=Math.floor(Math.random()*52)+6;//6-57
+			proc=Number(100*(att1[card]/(744*(i+1))+att2[card]/(57*(i+1)))/2);
+		}/*Aizen*/ else if (card==16) {
+			att1[card]+=Math.floor(Math.random()*442)+50;//50-491
+			att2[card]+=Math.floor(Math.random()*45)+6;//6-50
+			proc=Number(100*(att1[card]/(491*(i+1))+att2[card]/(50*(i+1)))/2);
+		} else if (card==17) {
+			att1[card]+=Math.floor(Math.random()*229)+26;//26-254
+			att2[card]+=Math.floor(Math.random()*50)+6;//6-55
+			proc=Number(100*(att1[card]/(254*(i+1))+att2[card]/(55*(i+1)))/2);
+		} else if (card==18) {
+			att1[card]+=Math.floor(Math.random()*497)+56;//56-552
+			att2[card]+=Math.floor(Math.random()*52)+6;//6-57
+			proc=Number(100*(att1[card]/(552*(i+1))+att2[card]/(57*(i+1)))/2);
+		} else if (card==19) {
+			att1[card]+=Math.floor(Math.random()*2009)+224;//224-2232
+			att2[card]+=Math.floor(Math.random()*51)+6;//6-56
+			proc=Number(100*(att1[card]/(2232*(i+1))+att2[card]/(56*(i+1)))/2);
+		} else if (card==20) {
+			att1[card]+=Math.floor(Math.random()*670)+75;//75-744
+			att2[card]+=Math.floor(Math.random()*49)+6;//6-54
+			proc=Number(100*(att1[card]/(744*(i+1))+att2[card]/(54*(i+1)))/2);
+		}
 	}
 	
 	Output(proc);
-	document.getElementById("card_fullwrap").style.display="none";
+	document.getElementById("card_fullwrap1").style.display="none";
 }
 function Output(proc){
 	var out = document.getElementById(card);
 	var total = document.getElementById("card_gold");
-	var P="", Frame="", S="", C=["",""];
+	var P="", Frame="", S="", C=["","Passive_Card_Attack01"];
 	if (proc>=80) {P="red\">Legendary"; Frame="05";}
 	else if (proc>=60) {P="orange\">Epic"; Frame="04";}
 	else if (proc>=40) {P="lightblue\">Normal"; Frame="03";}
@@ -158,7 +254,7 @@ function Output(proc){
 	else if (card==18) {C[0]="Fixed Damage"; C[1]="Passive_Card_SkillAttack01";}
 	
 	S+=C[1]+".png\" id=\"cimg2\"></div>";
-	S+="<table><tr><th><p>Lv."+(lvl[card])+"</p></th><th style=\"color:";
+	S+="<table><tr><th><p>Lv."+lvl[card]+"</p></th><th style=\"color:";
 	
 	S+=P+"</th></tr></table><table><tr><th>"+C[0];
 	
@@ -174,10 +270,21 @@ function Output(proc){
 	S+="</th><th>"+att2[card]+"</th></tr><tr><th></table>";
 	out.innerHTML=S; S="";
 	
-	S+="You have spent: "+pcard+" Passive cards; "+sbook+" Skill Books. Or: "+
-		(pcard*100000+sbook*10000)+" Gold; "+(pcard*200)+" Rubbies; "+(pcard*20)+" Diamonds.";
+	S+="You have spent: "+pcard+" Passive cards; "+sbook+" Skill Books. "+
+		gold+" Gold; "+rubi+" Rubbies; "+diam+" Diamonds.";
 	total.innerHTML=S;
 }
 function Max(){
 	document.getElementById("level").value=Number(8-lvl[card]);
+}
+function Min(){
+	document.getElementById("level").value=1;
+}
+function Plus(){
+	var a=document.getElementById("level").value;
+	if (a<Number(8-lvl[card])) document.getElementById("level").value=++a;
+}
+function Minus(){
+	var a=document.getElementById("level").value;
+	if (a>1) document.getElementById("level").value=--a;
 }
