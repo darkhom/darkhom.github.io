@@ -41,7 +41,7 @@ body{
 	}
 	.sidebar_element{
 		display: inline-block;
-		max-width: 90px;
+		max-width: 93px;
 		margin: 0px;
 	}
 	.main{
@@ -102,7 +102,7 @@ body{
     top: 25px;
 	width: 70px;
 }
-.card_b, .card_b80, .card_b15, .card_b45, .card_b45a, .card_b30, .card_b30a, .card_b30b{
+.card_b, .card_b80, .card_b15, .card_b5, .card_b45, .card_b45a, .card_b30, .card_b30a, .card_b30b{
 	background: #777;
 	color: white;
 	margin: 0px;
@@ -117,6 +117,9 @@ body{
 }
 .card_b15{
 	width: 15%;
+}
+.card_b5{
+	min-width: 5%;
 }
 .card_b30, .card_b30a, .card_b30b{
 	width: 30%;
